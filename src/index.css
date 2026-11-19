@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Remove Tailwind's default palette so only the tokens below can be used. */
+  --color-*: initial;
+
+  --color-bg: #f6f1ef;        /* page background (a soft tint of #C9ADA7) */
+  --color-surface: #ffffff;   /* the card */
+  --color-ink: #2b2d3a;       /* main text */
+  --color-muted: #6b5f6a;     /* secondary text, 6:1 on white */
+  --color-primary: #4a4e69;   /* buttons, headings, links, focus ring, 8.1:1 with white */
+  --color-on-primary: #ffffff; /* text on primary buttons */
+  --color-mauve: #9a8c98;     /* input borders and dividers only, 3.2:1 (OK for UI, NOT for text) */
+  --color-rose: #c9ada7;      /* decorative only: card accent, strength-bar track, subtle highlights. Never text */
+  --color-danger: #a14b55;    /* error text and borders, 5.7:1 on white */
+  --color-success: #4a7a63;   /* success text, 4.9:1 on white */
+
+  /* One radius for inputs and buttons, one for the card. */
+  --radius-control: 0.625rem;
+  --radius-card: 1.25rem;
+
+  --shadow-card: 0 1px 2px rgb(43 45 58 / 0.04), 0 16px 40px -16px rgb(74 78 105 / 0.22);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
